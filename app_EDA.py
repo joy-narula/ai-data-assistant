@@ -32,7 +32,11 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 # Load LLM model
-llm = OpenAI()
+# Load LLM model
+llm = ChatOpenAI(
+    model = "gpt-4o",
+    temperature=0
+             )
 
 # UI Initialization
 st.title('AI Assistant for Data Science')
@@ -214,7 +218,7 @@ with tab1:
         # Setting File Pointer to start of the file
         user_xlsx.seek(0)
         df = pd.read_excel(user_xlsx, sheet_name=0)
-        pandas_agent = create_pandas_dataframe_agent(llm, df, verbose=True, allow_dangerous_code=True)
+        pandas_agent = create_pandas_dataframe_agent(llm, df, verbose=True, allow_dangerous_code=True, agent_executor_kwargs={"handle_parsing_errors": True})
         
         function_agent()
         
