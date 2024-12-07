@@ -43,3 +43,4 @@ pinecone-client
 pinecone-text
 pinecone-notebooks
 openpyxl
+statsmodels
