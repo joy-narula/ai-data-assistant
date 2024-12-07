@@ -5,10 +5,10 @@ import streamlit as st
 import os 
 from dotenv import load_dotenv
 
-pinecone_key = os.getenv("PINECONE_API_KEY")
+pinecone_key = st.secrets["PINECONE_API_KEY"]
 # Loading env variables
 load_dotenv()
-openai_key = os.getenv("OPENAI_API_KEY")
+openai_key = st.secrets["OPENAI_API_KEY"]
 
 pc = Pinecone(pinecone_key)
 client = OpenAI(api_key=openai_key)

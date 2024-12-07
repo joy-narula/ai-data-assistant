@@ -29,7 +29,7 @@ from aux_functions import *
 
 # OpenAI API Key
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 # Load LLM model
 llm = OpenAI()
@@ -47,20 +47,20 @@ with st.sidebar:
     
     st.divider()
 
-@st.cache_data
-def steps_eda():
-    steps_eda = llm('What are the steps for EDA')
-    return steps_eda
+# @st.cache_data
+# def steps_eda():
+#     steps_eda = llm('What are the steps for EDA')
+#     return steps_eda
 
-@st.cache_data
-def data_science_framing():
-    data_science_framing = llm("Write a couple of paragraphs about the importance of framing a data science problem appropriately")
-    return data_science_framing
+# @st.cache_data
+# def data_science_framing():
+#     data_science_framing = llm("Write a couple of paragraphs about the importance of framing a data science problem appropriately")
+#     return data_science_framing
 
-@st.cache_data
-def algorithm_selection():
-    data_science_framing = llm("Write a couple of paragraphs about the importance of considering more than one algorithm when trying to solve a data science problem")
-    return data_science_framing
+# @st.cache_data
+# def algorithm_selection():
+#     data_science_framing = llm("Write a couple of paragraphs about the importance of considering more than one algorithm when trying to solve a data science problem")
+#     return data_science_framing
 
 @st.cache_data
 def function_agent():
@@ -197,17 +197,17 @@ tab1, tab2 = st.tabs(["Data Analysis and Data Science", "ChatBot"])
 with tab1:
     user_xlsx = st.file_uploader("Upload your file Excel file here", type="xlsx")
 
-    with st.sidebar:
-        with st.expander('What are the steps for EDA'):
-            st.write(steps_eda())
+    # with st.sidebar:
+    #     with st.expander('What are the steps for EDA'):
+    #         st.write(steps_eda())
 
-    with st.sidebar:
-        with st.expander("The importance of framing a data science problem approriately"):
-            st.caption(data_science_framing())
+    # with st.sidebar:
+    #     with st.expander("The importance of framing a data science problem approriately"):
+    #         st.caption(data_science_framing())
 
-    with st.sidebar:
-        with st.expander("Is one algorithm enough?"):
-            st.caption(algorithm_selection())
+    # with st.sidebar:
+    #     with st.expander("Is one algorithm enough?"):
+    #         st.caption(algorithm_selection())
 
 
     if user_xlsx is not None:
