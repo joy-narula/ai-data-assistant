@@ -15,6 +15,7 @@ unstructured_pytesseract
 langchain_openai
 langchain_core
 langchain_community
+langchain_experimental
 python-dotenv
 langchain_ollama
 streamlit
