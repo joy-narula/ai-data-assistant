@@ -1,0 +1,14 @@
+streamlit
+streamlit_chat
+langchain
+openai
+sentence_transformers
+unstructured
+unstructured_inference
+libmagic
+tesseract
+pinecone-client
+tabulate
+pi_heif
+pytesseract
+unstructured_pytesseract
